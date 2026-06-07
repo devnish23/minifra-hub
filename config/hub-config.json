@@ -1,0 +1,58 @@
+{
+  "_comment": "Minifra Hub configuration — edit before running build.bat",
+
+  "host": "0.0.0.0",
+  "port": 8080,
+  "hub_ip": "192.168.1.109",
+
+  "auth_token": "mfs-hub-changeme-replace-this",
+
+  "collect_interval_s": 30,
+
+  "endpoints": [
+    {
+      "ip": "192.168.1.134",
+      "hostname": "MFS-VM-01",
+      "username": "Administrator",
+      "password": "CHANGE_ME",
+      "transport": "ntlm",
+      "department": "IT",
+      "role": "Endpoint User"
+    },
+    {
+      "ip": "192.168.1.141",
+      "hostname": "MFS-VM-02",
+      "username": "Administrator",
+      "password": "CHANGE_ME",
+      "transport": "ntlm",
+      "department": "IT",
+      "role": "Endpoint User"
+    },
+    {
+      "ip": "192.168.1.142",
+      "hostname": "MFS-VM-03",
+      "username": "Administrator",
+      "password": "CHANGE_ME",
+      "transport": "ntlm",
+      "department": "IT",
+      "role": "Endpoint User"
+    },
+    {
+      "ip": "192.168.1.143",
+      "hostname": "MFS-VM-04",
+      "username": "Administrator",
+      "password": "CHANGE_ME",
+      "transport": "ntlm",
+      "department": "IT",
+      "role": "Endpoint User"
+    }
+  ],
+
+  "_winrm_notes": [
+    "Run these on each endpoint VM if WinRM needs configuring:",
+    "  Enable-PSRemoting -Force",
+    "  Set-Item WSMan:\\localhost\\Service\\Auth\\Basic $true",
+    "  Set-Item WSMan:\\localhost\\Service\\AllowUnencrypted $true",
+    "  netsh advfirewall firewall add rule name='WinRM' dir=in action=allow protocol=TCP localport=5985"
+  ]
+}
